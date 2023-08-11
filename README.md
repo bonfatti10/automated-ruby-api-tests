@@ -1,4 +1,4 @@
-# Projeto de testes: :open_file_folder:
+# Portifólio de testes automatizados em Ruby para APIs: :open_file_folder:
 
 Portifólio de testes automatizados de API **Produtos**, desenvolvido na linguagem Ruby, uma linguagem dinâmica, open source com foco na simplicidade e na produtividade. 
 Tem uma sintaxe elegante de leitura natural e de fácil escrita.
