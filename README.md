@@ -51,7 +51,7 @@ source 'https://rubygems.org'
 $ git clone git@github.com:bonfatti10/automated-ruby-api-tests.git
 
 # Acesse via terminal o diretório onde clonou o projeto com o comando:
-`$ cd ../backend/tests-ms`
+`$ cd ../automated-ruby-api-tests`
 
 # Execute o comando a seguir para instalar as dependências do projeto:
 $ bundle install
