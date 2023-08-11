@@ -8,7 +8,7 @@ Neste framework trago um pouco de BDD, Faker, Get, Patch, Post, utilizado padrã
 ---
 
 ## Índice: :books:
-- [Requesitos](#-requisitos)
+- [Requisitos](#-requisitos)
 - [Gems utilizadas](#-gems-utilizadas)
 - [Instalação](#-instalação)
 - [Execução dos testes](#-execução-dos-testes)
