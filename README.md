@@ -15,7 +15,7 @@ Neste framework trago um pouco de BDD, Faker, Get, Patch, Post, utilizado padrã
 
 ---
 
-## Requesitos: :speech_balloon:
+## Requisitos: :speech_balloon:
 
 * Ruby (versão v2.5 ou superior)
 * Bundler (Gem)
