@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cucumber</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<style>
+
+.cucumber-react .cucumber-status--passed {
+  color: #2CB14A;
+}
+.cucumber-react .cucumber-status--skipped {
+  color: #00A0CC;
+}
+.cucumber-react .cucumber-status--pending {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--undefined {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--ambiguous {
+  color: #F4EBFD;
+}
+.cucumber-react .cucumber-status--failed {
+  color: #BB0000;
+}
+.cucumber-react .cucumber-status--unknown {
+  color: #B6BECB;
+}
+.cucumber-react h1, .cucumber-react h2, .cucumber-react h3 {
+  padding: 0;
+  margin: 0;
+}
+.cucumber-react a {
+  color: inherit;
+}
+.cucumber-react .gherkin-document-list {
+  font: 14px "Open Sans", sans-serif;
+  color: #161C24;
+  background: #fff;
+  overflow-x: hidden;
+}
+.cucumber-react .cucumber-title {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.cucumber-react .cucumber-title__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-title__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-tags {
+  padding: 0;
+  margin-bottom: 0;
+}
+.cucumber-react .cucumber-tags .cucumber-tag {
+  display: inline;
+  list-style-type: none;
+  padding: 4px 8px 4px 8px;
+  margin-right: 6px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}
+.cucumber-react .cucumber-feature__icon {
+  padding-top: 0.35em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-description,
+.cucumber-react .cucumber-children {
+  margin-left: 1em;
+}
+.cucumber-react .cucumber-feature,
+.cucumber-react .cucumber-rule,
+.cucumber-react .cucumber-scenario,
+.cucumber-react .cucumber-background {
+  margin-bottom: 1em;
+}
+.cucumber-react .cucumber-steps {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.cucumber-react .cucumber-steps .cucumber-step {
+  display: flex;
+}
+.cucumber-react .cucumber-steps .cucumber-step__status {
+  padding-top: 0.2em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-steps .cucumber-step__content {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-steps .cucumber-step__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-steps .cucumber-step__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-steps .cucumber-step__param {
+  font-weight: normal;
+  font-style: italic;
+}
+.cucumber-react .cucumber-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .cucumber-table__header-cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .cucumber-table__cell__step {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-code {
+  padding: 0.25em;
+  background-color: #ebebeb;
+}
+.cucumber-react .cucumber-error {
+  padding: 0.5em;
+  margin: 0;
+  overflow: scroll;
+}
+.cucumber-react .cucumber-no-documents {
+  font: 14px "Open Sans", sans-serif;
+}
+.cucumber-react .cucumber-attachment {
+  background-color: #ebebeb;
+  padding: 0.5em;
+}
+.cucumber-react .cucumber-attachment__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-attachment__image {
+  margin-top: 1em;
+}
+.cucumber-react .cucumber-anchor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+}
+.cucumber-react .cucumber-anchor__link {
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+}
+.cucumber-react .cucumber-anchor__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-anchor:hover a {
+  opacity: 1;
+  width: max-content;
+  transition: all 0.35s ease-in-out;
+}
+.cucumber-react .cucumber-anchor > * {
+  height: 100%;
+  margin-top: 0px;
+}
+
+.cucumber-report-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: 11px "Open Sans", sans-serif;
+  margin-bottom: 1em;
+}
+.cucumber-report-header > * {
+  padding: 1em;
+}
+.cucumber-report-header .cucumber-status-filter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-status-filter table {
+  width: 100%;
+}
+.cucumber-report-header .cucumber-execution-data {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-search-bar {
+  border-right: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search input {
+  padding: 0.4em;
+  border-radius: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search button {
+  height: 2.2em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar p.help {
+  font-size: 80%;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul {
+  display: inline;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li input {
+  display: inline-block;
+  width: auto;
+  height: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li label {
+  padding-right: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-execution-data {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: auto;
+  }
+}
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+
+	</style>
+</head>
+<body>
+<div id="content">
+</div>
+<script>
+window.CUCUMBER_MESSAGES = [
+{"meta":{"protocolVersion":"13.2.1","implementation":{"name":"cucumber-ruby","version":"5.2.0"},"runtime":{"name":"ruby","version":"2.6.10"},"os":{"name":"mingw32","version":"10.0.22000"},"cpu":{"name":"x64"}}},
+{"hook":{"id":"6ca3b33a-47d3-4240-9630-d4a4472d1622","sourceReference":{"uri":"features/support/hooks.rb","location":{"line":1}}}},
+{"hook":{"id":"570858e1-250f-4a3b-bcca-8f2124af723c","sourceReference":{"uri":"features/support/hooks.rb","location":{"line":6}}}},
+{"stepDefinition":{"id":"606f591f-635a-49de-a0b1-7270cb190764","pattern":{"source":"criamos o produto com os dados necessarios correto","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/create_product.rb","location":{"line":1}}}},
+{"stepDefinition":{"id":"548a0010-eabc-49cb-a152-342326934b03","pattern":{"source":"este produto deve ser criado com status code {int}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/create_product.rb","location":{"line":9}}}},
+{"stepDefinition":{"id":"618fc055-91ef-449c-9d11-1b492621836a","pattern":{"source":"realizar a requisição GET categoria","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/list_categories_step.rb","location":{"line":1}}}},
+{"stepDefinition":{"id":"d987fb88-b53f-42b8-9406-b4d7d8a62f42","pattern":{"source":"a API ira retornar as categorias cadastradas com status code {int}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/list_categories_step.rb","location":{"line":5}}}},
+{"stepDefinition":{"id":"38aee012-d81d-4319-aa66-44fd9668e5fd","pattern":{"source":"realizar a requisição GET especialidades medicas","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/list_medical_specialties_step.rb","location":{"line":1}}}},
+{"stepDefinition":{"id":"99cc10b3-1a23-4fe3-83c8-29e09d29dc2e","pattern":{"source":"a API ira retornar as especialidades medicas cadastradas com status code {int}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/list_medical_specialties_step.rb","location":{"line":5}}}},
+{"stepDefinition":{"id":"fb217055-452f-4d6f-8d51-7dc4d58c3183","pattern":{"source":"realizar a requisição GET status de produto","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/list_product_status_step.rb","location":{"line":1}}}},
+{"stepDefinition":{"id":"27bb8687-a5b7-4964-b8ff-4b8c7a6c605a","pattern":{"source":"a API ira retornar os status dos produtos cadastrados com status code {int}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/list_product_status_step.rb","location":{"line":5}}}},
+{"stepDefinition":{"id":"35d34ef5-4637-43db-b221-f70bc4bd3b59","pattern":{"source":"realizar a requisição GET ms-produtc","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/list_product_steps.rb","location":{"line":1}}}},
+{"stepDefinition":{"id":"7d21a4bc-c11e-4a22-9d46-c1a268d42c8d","pattern":{"source":"a API ira retornar os produtos cadastrados com status code {int}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/list_product_steps.rb","location":{"line":6}}}},
+{"stepDefinition":{"id":"e543b613-62c5-4fd8-8385-cc6296d80856","pattern":{"source":"realizar a requisao GET com ID","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/list_product_steps.rb","location":{"line":12}}}},
+{"stepDefinition":{"id":"7f75529d-7f0c-4a41-89f3-c4186769e21a","pattern":{"source":"a API ira retornar o ID com os dados cadastrados com status code {int}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/list_product_steps.rb","location":{"line":18}}}},
+{"stepDefinition":{"id":"f94c8b63-0fd2-4561-a51e-e2d4f74434f2","pattern":{"source":"realizar a requisição GET sub categoria","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/list_sub_categories_step.rb","location":{"line":1}}}},
+{"stepDefinition":{"id":"20c2c709-8e06-4101-8bbe-b98515a2cfd8","pattern":{"source":"a API ira retornar as sub categorias cadastradas com status code {int}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/list_sub_categories_step.rb","location":{"line":5}}}},
+{"stepDefinition":{"id":"c58b48dd-7a74-41ad-af46-ef81424b0057","pattern":{"source":"realizar a requisição GET template Attributes","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/list_template_attributes_step.rb","location":{"line":1}}}},
+{"stepDefinition":{"id":"ea04bc67-59a0-46d6-b2d9-8940d0943713","pattern":{"source":"a API ira retornar os templates Attributes cadastrados com status code {int}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/list_template_attributes_step.rb","location":{"line":5}}}},
+{"stepDefinition":{"id":"35290f17-d2e5-490d-bce9-cb4466db026f","pattern":{"source":"realizar a requisição Patch ms-produtc","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/update_products_step.rb","location":{"line":1}}}},
+{"stepDefinition":{"id":"a3174aa4-0bc7-4752-99ea-b2d09d16f451","pattern":{"source":"a API ira retornar o produto com os dados atualizados com status code {int}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/ms_products_step/update_products_step.rb","location":{"line":10}}}},
+{"stepDefinition":{"id":"cb1c6a7c-b907-471e-80c3-806223a4128a","pattern":{"source":"que tenho um seller cadastrado","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/units_steps.rb","location":{"line":1}}}},
+{"stepDefinition":{"id":"4524b655-a00f-43af-be93-8fb3b43cbe80","pattern":{"source":"enviar a requisição post {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/units_steps.rb","location":{"line":9}}}},
+{"stepDefinition":{"id":"2ffb6097-d043-4cb6-93d5-5b9964c5bb6f","pattern":{"source":"deve retornar o status {int}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/units_steps.rb","location":{"line":14}}}},
+{"stepDefinition":{"id":"725d0866-92fe-4a20-9f5d-5aabfcbbc772","pattern":{"source":"a mensagem {string}","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/units_steps.rb","location":{"line":18}}}},
+{"stepDefinition":{"id":"5e8a21f4-332b-4a3e-b23a-e7662af6b900","pattern":{"source":"que tenha uma unidade cadastrada","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/units_steps.rb","location":{"line":22}}}},
+{"stepDefinition":{"id":"59720e6c-43b0-457f-b770-98485b50c1bb","pattern":{"source":"enviar a requisição GET","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/units_steps.rb","location":{"line":26}}}},
+{"stepDefinition":{"id":"cc663a17-611b-4230-8393-940618d33a36","pattern":{"source":"o corpo da resposta da unidade deve conter todos os campos especificados","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/units_steps.rb","location":{"line":30}}}},
+{"source":{"uri":"features/specs/ms_products/create_product.feature","data":"#language: pt\n\n@regressivo\nFuncionalidade: Criar produto\n\n@CreateProducts\nCenario: Criar produto com dados validos\n  Quando criamos o produto com os dados necessarios correto\n  Entao este produto deve ser criado com status code 201\n","mediaType":"text/x.cucumber.gherkin+plain"}},
+{"source":{"uri":"features/specs/ms_products/lis_product_status.feature","data":"#language: pt\n\n@regressivo\nFuncionalidade: Consultar Product Status\n  Como PM\n  Quero realizar requisições GET na API status de produto\n  Para que possa consultar os status de produtos cadastrados\n\n@consultarProductsStatus\nCenario: Consultar Lista Products Status\n  Quando realizar a requisição GET status de produto\n  Entao a API ira retornar os status dos produtos cadastrados com status code 200\n","mediaType":"text/x.cucumber.gherkin+plain"}},
+{"source":{"uri":"features/specs/ms_products/list_attributes.feature","data":"#language: pt\n\n@regressivo\nFuncionalidade: Consultar Template Attributes\n  Como PM\n  Quero realizar requisições GET na API template Attributes\n  Para que possa consultar os templates attributes cadastrados\n\n@consultarTemplateAttributes\nCenario: Consultar Lista Template Attributes\n  Quando realizar a requisição GET template Attributes\n  Entao a API ira retornar os templates Attributes cadastrados com status code 200\n","mediaType":"text/x.cucumber.gherkin+plain"}},
+{"source":{"uri":"features/specs/ms_products/list_categories.feature","data":"#language: pt\n\n@regressivo\nFuncionalidade: Consultar Categories\n  Como PM\n  Quero realizar requisições GET na API categorias\n  Para que possa consultar as categorias cadastradas\n\n@consultarCategories\nCenario: Consultar Lista Categories\n  Quando realizar a requisição GET categoria\n  Entao a API ira retornar as categorias cadastradas com status code 200\n","mediaType":"text/x.cucumber.gherkin+plain"}},
+{"source":{"uri":"features/specs/ms_products/list_medical_specialties.feature","data":"#language: pt\n\n@regressivo\nFuncionalidade: Consultar Medical Specialties\n  Como PM \n  Quero realizar requisições GET na API especialidades medicas\n  Para que possa consultar as especialidades medicas cadastradas\n  \n@consultarMedicalSpecialties\nCenario: Consultar Lista Medical Specialties\n  Quando realizar a requisição GET especialidades medicas\n  Entao a API ira retornar as especialidades medicas cadastradas com status code 200\n","mediaType":"text/x.cucumber.gherkin+plain"}},
+{"source":{"uri":"features/specs/ms_products/list_product.feature","data":"#language: pt\n\n@regressivo\nFuncionalidade: Consultar MS-Product\n  Como PM\n  Quero realizar requisições GET na API MS-Product\n  Para que possa consultar os produtos cadastrados\n\n@consultarProduct\nCenario: Consultar lista de Product\n  Quando realizar a requisição GET ms-produtc\n  Entao a API ira retornar os produtos cadastrados com status code 200\n\n@ConsultarProductId\nCenario: Realizar requisao Get com ID\n  Quando realizar a requisao GET com ID\n  Entao  a API ira retornar o ID com os dados cadastrados com status code 200\n","mediaType":"text/x.cucumber.gherkin+plain"}},
+{"source":{"uri":"features/specs/ms_products/list_sub_categories.feature","data":"#language: pt\n\n@regressivo\nFuncionalidade: Consultar Sub categories\n  Como PM \n  Quero realizar requisições GET na API sub categorias\n  Para que possa consultar as sub categorias cadastradas\n  \n@consultarSubCategories\nCenario: Consultar Lista sub categories\n  Quando realizar a requisição GET sub categoria\n  Entao a API ira retornar as sub categorias cadastradas com status code 200\n","mediaType":"text/x.cucumber.gherkin+plain"}},
+{"source":{"uri":"features/specs/ms_products/update_produto.feature","data":"#language: pt\n\n@regressivo\nFuncionalidade: Atualizar MS-Product\n  Como PM\n  Quero realizar requisições Put Product\n  Para que possa atulizar dados dos produtos cadastrados\n\n@updateProducts\nCenario: Atulizar dados de Product\n  Quando realizar a requisição Patch ms-produtc\n  Entao a API ira retornar o produto com os dados atualizados com status code 200\n","mediaType":"text/x.cucumber.gherkin+plain"}},
+{"source":{"uri":"features/specs/units.feature","data":"#language: pt\n\nFuncionalidade: /Units\n\nContexto: Ter um seller cadastrado\n  Dado que tenho um seller cadastrado\n          \nCenario: Criar unidade\n  Quando enviar a requisição post 'create_units'\n  Então deve retornar o status 201\n\nEsquema do Cenario: Valores invalidos\n  Quando enviar a requisição post \u003ccod_unit\u003e\n  Então deve retornar o status \u003ccod_status\u003e\n  E a mensagem \u003cmessage\u003e\n\n  Exemplos:\n    | cod_unit         | cod_status | message                             |\n    | 'invalid_phone'  | 400        | 'Telefone inválido'                 |\n    | 'invalid_crm'    | 400        | 'CRM inválido'                      |\n    | 'invalid_rating' | 400        | 'rating must not be greater than 5' |\n    | 'invalid_email'  | 400        | 'contactEmail must be an email'     |\n      \nCenário: Listar unidade\n  Dado que tenha uma unidade cadastrada\n  Quando enviar a requisição GET \n  Então deve retornar o status 200\n  E o corpo da resposta da unidade deve conter todos os campos especificados","mediaType":"text/x.cucumber.gherkin+plain"}},
+{"gherkinDocument":{"feature":{"tags":[{"location":{"line":3,"column":1},"name":"@regressivo","id":"77ec0e37-6b49-44cc-a1a1-6f96fc0d38fd"}],"location":{"line":4,"column":1},"language":"pt","keyword":"Funcionalidade","name":"Criar produto","children":[{"scenario":{"id":"54d61d8c-1122-4720-b33e-dc1796b1395e","tags":[{"location":{"line":6,"column":1},"name":"@CreateProducts","id":"f0522f8b-6985-4034-b8b3-b2e2daaaf54f"}],"location":{"line":7,"column":1},"keyword":"Cenario","name":"Criar produto com dados validos","steps":[{"location":{"line":8,"column":3},"keyword":"Quando ","text":"criamos o produto com os dados necessarios correto","id":"b9deab23-33ee-4d37-9e8a-a59fde2386b4"},{"location":{"line":9,"column":3},"keyword":"Entao ","text":"este produto deve ser criado com status code 201","id":"32876d45-59ba-4682-8885-c0b9ff56f1a3"}]}}]},"uri":"features/specs/ms_products/create_product.feature"}},
+{"pickle":{"uri":"features/specs/ms_products/create_product.feature","id":"ab107347-9344-4a8a-9adc-03f5a9c0090a","tags":[{"name":"@regressivo","astNodeId":"77ec0e37-6b49-44cc-a1a1-6f96fc0d38fd"},{"name":"@CreateProducts","astNodeId":"f0522f8b-6985-4034-b8b3-b2e2daaaf54f"}],"name":"Criar produto com dados validos","language":"pt","astNodeIds":["54d61d8c-1122-4720-b33e-dc1796b1395e"],"steps":[{"id":"a846c87f-9b2d-48fe-b44b-32711f58730a","astNodeIds":["b9deab23-33ee-4d37-9e8a-a59fde2386b4"],"text":"criamos o produto com os dados necessarios correto"},{"id":"319e768b-2bb5-4fb9-9a2b-d60fa31db4e7","astNodeIds":["32876d45-59ba-4682-8885-c0b9ff56f1a3"],"text":"este produto deve ser criado com status code 201"}]}},
+{"gherkinDocument":{"feature":{"tags":[{"location":{"line":3,"column":1},"name":"@regressivo","id":"3bfb330a-0bae-4bcd-9113-1e35313630d2"}],"location":{"line":4,"column":1},"language":"pt","keyword":"Funcionalidade","name":"Consultar Product Status","description":"  Como PM\n  Quero realizar requisições GET na API status de produto\n  Para que possa consultar os status de produtos cadastrados","children":[{"scenario":{"id":"2098a8bd-aa2b-49f8-8628-db4c1a9a7e84","tags":[{"location":{"line":9,"column":1},"name":"@consultarProductsStatus","id":"f17c4b41-ed69-40ae-a8c2-8003f041162b"}],"location":{"line":10,"column":1},"keyword":"Cenario","name":"Consultar Lista Products Status","steps":[{"location":{"line":11,"column":3},"keyword":"Quando ","text":"realizar a requisição GET status de produto","id":"8f4b802c-3454-4170-9c0a-b674088f0141"},{"location":{"line":12,"column":3},"keyword":"Entao ","text":"a API ira retornar os status dos produtos cadastrados com status code 200","id":"8bf3f9aa-92b1-4fa2-b1f6-badc654e85a7"}]}}]},"uri":"features/specs/ms_products/lis_product_status.feature"}},
+{"pickle":{"uri":"features/specs/ms_products/lis_product_status.feature","id":"422235df-e3f3-4a6a-b599-1d193c2c447d","tags":[{"name":"@regressivo","astNodeId":"3bfb330a-0bae-4bcd-9113-1e35313630d2"},{"name":"@consultarProductsStatus","astNodeId":"f17c4b41-ed69-40ae-a8c2-8003f041162b"}],"name":"Consultar Lista Products Status","language":"pt","astNodeIds":["2098a8bd-aa2b-49f8-8628-db4c1a9a7e84"],"steps":[{"id":"bd2aea31-cc26-4160-a6b1-7b790fe04317","astNodeIds":["8f4b802c-3454-4170-9c0a-b674088f0141"],"text":"realizar a requisição GET status de produto"},{"id":"79037df2-2a1b-43af-969d-2ac06d523c9f","astNodeIds":["8bf3f9aa-92b1-4fa2-b1f6-badc654e85a7"],"text":"a API ira retornar os status dos produtos cadastrados com status code 200"}]}},
+{"gherkinDocument":{"feature":{"tags":[{"location":{"line":3,"column":1},"name":"@regressivo","id":"03820391-907e-4588-a416-3995a5ff4ab8"}],"location":{"line":4,"column":1},"language":"pt","keyword":"Funcionalidade","name":"Consultar Template Attributes","description":"  Como PM\n  Quero realizar requisições GET na API template Attributes\n  Para que possa consultar os templates attributes cadastrados","children":[{"scenario":{"id":"854f7286-ce51-4dfe-bb71-f70dee7148ef","tags":[{"location":{"line":9,"column":1},"name":"@consultarTemplateAttributes","id":"c3d9f407-aaf1-4286-a43f-00323a5c5c3e"}],"location":{"line":10,"column":1},"keyword":"Cenario","name":"Consultar Lista Template Attributes","steps":[{"location":{"line":11,"column":3},"keyword":"Quando ","text":"realizar a requisição GET template Attributes","id":"b59a5bb2-16b7-4121-9fd2-244808c15f57"},{"location":{"line":12,"column":3},"keyword":"Entao ","text":"a API ira retornar os templates Attributes cadastrados com status code 200","id":"e1bf3633-9fa9-4c09-a661-0aae8313363f"}]}}]},"uri":"features/specs/ms_products/list_attributes.feature"}},
+{"pickle":{"uri":"features/specs/ms_products/list_attributes.feature","id":"0f155489-a4aa-41aa-99e3-3be556ee6eed","tags":[{"name":"@regressivo","astNodeId":"03820391-907e-4588-a416-3995a5ff4ab8"},{"name":"@consultarTemplateAttributes","astNodeId":"c3d9f407-aaf1-4286-a43f-00323a5c5c3e"}],"name":"Consultar Lista Template Attributes","language":"pt","astNodeIds":["854f7286-ce51-4dfe-bb71-f70dee7148ef"],"steps":[{"id":"c5d8445b-e0da-4ec4-b120-edd8b27e1085","astNodeIds":["b59a5bb2-16b7-4121-9fd2-244808c15f57"],"text":"realizar a requisição GET template Attributes"},{"id":"73e4ab1c-0b90-4f82-a1aa-7ffbdc45fb70","astNodeIds":["e1bf3633-9fa9-4c09-a661-0aae8313363f"],"text":"a API ira retornar os templates Attributes cadastrados com status code 200"}]}},
+{"gherkinDocument":{"feature":{"tags":[{"location":{"line":3,"column":1},"name":"@regressivo","id":"80f4a28b-39c2-46ec-a934-b3c499b615ab"}],"location":{"line":4,"column":1},"language":"pt","keyword":"Funcionalidade","name":"Consultar Categories","description":"  Como PM\n  Quero realizar requisições GET na API categorias\n  Para que possa consultar as categorias cadastradas","children":[{"scenario":{"id":"c92d1684-88aa-4ed7-9c86-11e9ff4949b0","tags":[{"location":{"line":9,"column":1},"name":"@consultarCategories","id":"1f64f598-2d5e-4aa0-afc0-19261938fd43"}],"location":{"line":10,"column":1},"keyword":"Cenario","name":"Consultar Lista Categories","steps":[{"location":{"line":11,"column":3},"keyword":"Quando ","text":"realizar a requisição GET categoria","id":"6b3254f9-d3ee-4cc3-bc8c-296585e47f55"},{"location":{"line":12,"column":3},"keyword":"Entao ","text":"a API ira retornar as categorias cadastradas com status code 200","id":"f2e7174b-2d6a-472c-80e1-6c441c7c49d9"}]}}]},"uri":"features/specs/ms_products/list_categories.feature"}},
+{"pickle":{"uri":"features/specs/ms_products/list_categories.feature","id":"818eb57a-ea6b-485f-9519-3a933e110d70","tags":[{"name":"@regressivo","astNodeId":"80f4a28b-39c2-46ec-a934-b3c499b615ab"},{"name":"@consultarCategories","astNodeId":"1f64f598-2d5e-4aa0-afc0-19261938fd43"}],"name":"Consultar Lista Categories","language":"pt","astNodeIds":["c92d1684-88aa-4ed7-9c86-11e9ff4949b0"],"steps":[{"id":"566d8a35-69d3-4d9c-833c-4a9772073c00","astNodeIds":["6b3254f9-d3ee-4cc3-bc8c-296585e47f55"],"text":"realizar a requisição GET categoria"},{"id":"141370bc-3479-4155-bafb-8cddc307dc5d","astNodeIds":["f2e7174b-2d6a-472c-80e1-6c441c7c49d9"],"text":"a API ira retornar as categorias cadastradas com status code 200"}]}},
+{"gherkinDocument":{"feature":{"tags":[{"location":{"line":3,"column":1},"name":"@regressivo","id":"c18e98e8-6225-440a-a59e-8e33cb2ec00f"}],"location":{"line":4,"column":1},"language":"pt","keyword":"Funcionalidade","name":"Consultar Medical Specialties","description":"  Como PM \n  Quero realizar requisições GET na API especialidades medicas\n  Para que possa consultar as especialidades medicas cadastradas","children":[{"scenario":{"id":"e3db1f25-08ea-47f6-aa4b-efe9d6702a0b","tags":[{"location":{"line":9,"column":1},"name":"@consultarMedicalSpecialties","id":"e97bfe22-1c44-4778-aaab-d80904c75209"}],"location":{"line":10,"column":1},"keyword":"Cenario","name":"Consultar Lista Medical Specialties","steps":[{"location":{"line":11,"column":3},"keyword":"Quando ","text":"realizar a requisição GET especialidades medicas","id":"5967fefa-5c53-4c70-8e61-e6fb17f82dda"},{"location":{"line":12,"column":3},"keyword":"Entao ","text":"a API ira retornar as especialidades medicas cadastradas com status code 200","id":"ab072fa9-8faf-4d9b-9e10-e3bafba91726"}]}}]},"uri":"features/specs/ms_products/list_medical_specialties.feature"}},
+{"pickle":{"uri":"features/specs/ms_products/list_medical_specialties.feature","id":"d1926f79-bba4-4704-a3da-723c7d5ca422","tags":[{"name":"@regressivo","astNodeId":"c18e98e8-6225-440a-a59e-8e33cb2ec00f"},{"name":"@consultarMedicalSpecialties","astNodeId":"e97bfe22-1c44-4778-aaab-d80904c75209"}],"name":"Consultar Lista Medical Specialties","language":"pt","astNodeIds":["e3db1f25-08ea-47f6-aa4b-efe9d6702a0b"],"steps":[{"id":"2de8c5dd-e882-44b8-9781-e53bbe9bc5cb","astNodeIds":["5967fefa-5c53-4c70-8e61-e6fb17f82dda"],"text":"realizar a requisição GET especialidades medicas"},{"id":"0c5d842c-61eb-496a-a6a9-81e5f92f55b4","astNodeIds":["ab072fa9-8faf-4d9b-9e10-e3bafba91726"],"text":"a API ira retornar as especialidades medicas cadastradas com status code 200"}]}},
+{"gherkinDocument":{"feature":{"tags":[{"location":{"line":3,"column":1},"name":"@regressivo","id":"7a1c24fc-9ed5-4aa6-86c1-3353a5a83dd1"}],"location":{"line":4,"column":1},"language":"pt","keyword":"Funcionalidade","name":"Consultar MS-Product","description":"  Como PM\n  Quero realizar requisições GET na API MS-Product\n  Para que possa consultar os produtos cadastrados","children":[{"scenario":{"id":"ceea8618-94d2-4736-be5f-71e3f5b6a96d","tags":[{"location":{"line":9,"column":1},"name":"@consultarProduct","id":"466b63b9-0887-4a01-a634-34c99bb010dd"}],"location":{"line":10,"column":1},"keyword":"Cenario","name":"Consultar lista de Product","steps":[{"location":{"line":11,"column":3},"keyword":"Quando ","text":"realizar a requisição GET ms-produtc","id":"e5667b82-7635-4853-b95c-89e52a798cba"},{"location":{"line":12,"column":3},"keyword":"Entao ","text":"a API ira retornar os produtos cadastrados com status code 200","id":"0d625710-9efd-4ed5-b46a-8a93a8aba821"}]}},{"scenario":{"id":"656b66ff-ce67-4c3e-b5ab-4ee61eb1a2b9","tags":[{"location":{"line":14,"column":1},"name":"@ConsultarProductId","id":"d648e24b-72ef-40fe-88fe-5f80e7016283"}],"location":{"line":15,"column":1},"keyword":"Cenario","name":"Realizar requisao Get com ID","steps":[{"location":{"line":16,"column":3},"keyword":"Quando ","text":"realizar a requisao GET com ID","id":"add6096d-7aae-4050-a722-0a585fff1f03"},{"location":{"line":17,"column":3},"keyword":"Entao ","text":"a API ira retornar o ID com os dados cadastrados com status code 200","id":"53aa5472-74de-4766-b1c2-ea7332974d3d"}]}}]},"uri":"features/specs/ms_products/list_product.feature"}},
+{"pickle":{"uri":"features/specs/ms_products/list_product.feature","id":"1d67213e-59aa-44c9-84b5-a2abbd86bd20","tags":[{"name":"@regressivo","astNodeId":"7a1c24fc-9ed5-4aa6-86c1-3353a5a83dd1"},{"name":"@consultarProduct","astNodeId":"466b63b9-0887-4a01-a634-34c99bb010dd"}],"name":"Consultar lista de Product","language":"pt","astNodeIds":["ceea8618-94d2-4736-be5f-71e3f5b6a96d"],"steps":[{"id":"2cdfaf4f-6ad3-4ef1-b638-8e90510430ea","astNodeIds":["e5667b82-7635-4853-b95c-89e52a798cba"],"text":"realizar a requisição GET ms-produtc"},{"id":"3d45e217-0961-4605-90d6-beb39cf2ded7","astNodeIds":["0d625710-9efd-4ed5-b46a-8a93a8aba821"],"text":"a API ira retornar os produtos cadastrados com status code 200"}]}},
+{"pickle":{"uri":"features/specs/ms_products/list_product.feature","id":"b439ed78-d069-4972-a0a0-02f4e0b4e922","tags":[{"name":"@regressivo","astNodeId":"7a1c24fc-9ed5-4aa6-86c1-3353a5a83dd1"},{"name":"@ConsultarProductId","astNodeId":"d648e24b-72ef-40fe-88fe-5f80e7016283"}],"name":"Realizar requisao Get com ID","language":"pt","astNodeIds":["656b66ff-ce67-4c3e-b5ab-4ee61eb1a2b9"],"steps":[{"id":"3bc5658e-32bb-4adb-8d97-c0506a0c8121","astNodeIds":["add6096d-7aae-4050-a722-0a585fff1f03"],"text":"realizar a requisao GET com ID"},{"id":"18c6fe80-6436-4a7d-be70-45fd10b63c74","astNodeIds":["53aa5472-74de-4766-b1c2-ea7332974d3d"],"text":"a API ira retornar o ID com os dados cadastrados com status code 200"}]}},
+{"gherkinDocument":{"feature":{"tags":[{"location":{"line":3,"column":1},"name":"@regressivo","id":"fa3756eb-c8e7-422a-9741-981e092f6fb6"}],"location":{"line":4,"column":1},"language":"pt","keyword":"Funcionalidade","name":"Consultar Sub categories","description":"  Como PM \n  Quero realizar requisições GET na API sub categorias\n  Para que possa consultar as sub categorias cadastradas","children":[{"scenario":{"id":"bfe0e0e9-33e3-4d36-beb7-0b735f73228c","tags":[{"location":{"line":9,"column":1},"name":"@consultarSubCategories","id":"e31705e7-e5b9-4576-9d67-a81187f51610"}],"location":{"line":10,"column":1},"keyword":"Cenario","name":"Consultar Lista sub categories","steps":[{"location":{"line":11,"column":3},"keyword":"Quando ","text":"realizar a requisição GET sub categoria","id":"65533067-9c3b-494c-8e7c-c7aec1b5ccef"},{"location":{"line":12,"column":3},"keyword":"Entao ","text":"a API ira retornar as sub categorias cadastradas com status code 200","id":"597742da-b84c-4275-b0ed-9f032f1174db"}]}}]},"uri":"features/specs/ms_products/list_sub_categories.feature"}},
+{"pickle":{"uri":"features/specs/ms_products/list_sub_categories.feature","id":"838aa57d-b91f-496e-9e02-54f7d4278c33","tags":[{"name":"@regressivo","astNodeId":"fa3756eb-c8e7-422a-9741-981e092f6fb6"},{"name":"@consultarSubCategories","astNodeId":"e31705e7-e5b9-4576-9d67-a81187f51610"}],"name":"Consultar Lista sub categories","language":"pt","astNodeIds":["bfe0e0e9-33e3-4d36-beb7-0b735f73228c"],"steps":[{"id":"e9be2345-ce6e-4963-b1cb-dd45e990e838","astNodeIds":["65533067-9c3b-494c-8e7c-c7aec1b5ccef"],"text":"realizar a requisição GET sub categoria"},{"id":"b9769274-50ab-4197-8fb7-3ef8f10d2134","astNodeIds":["597742da-b84c-4275-b0ed-9f032f1174db"],"text":"a API ira retornar as sub categorias cadastradas com status code 200"}]}},
+{"gherkinDocument":{"feature":{"tags":[{"location":{"line":3,"column":1},"name":"@regressivo","id":"9d6c09af-cdc0-4c3d-9ef6-ca124dc0c1b6"}],"location":{"line":4,"column":1},"language":"pt","keyword":"Funcionalidade","name":"Atualizar MS-Product","description":"  Como PM\n  Quero realizar requisições Put Product\n  Para que possa atulizar dados dos produtos cadastrados","children":[{"scenario":{"id":"d770ed24-419f-4610-8037-7226229e592d","tags":[{"location":{"line":9,"column":1},"name":"@updateProducts","id":"bfd1b72f-2f91-4281-ba74-8f547b3d8af2"}],"location":{"line":10,"column":1},"keyword":"Cenario","name":"Atulizar dados de Product","steps":[{"location":{"line":11,"column":3},"keyword":"Quando ","text":"realizar a requisição Patch ms-produtc","id":"afa3e666-7288-4b05-b33e-97efbf4f3ce4"},{"location":{"line":12,"column":3},"keyword":"Entao ","text":"a API ira retornar o produto com os dados atualizados com status code 200","id":"316add04-2c3a-441e-b452-711673c90f16"}]}}]},"uri":"features/specs/ms_products/update_produto.feature"}},
+{"pickle":{"uri":"features/specs/ms_products/update_produto.feature","id":"b1702ca9-0c04-4489-bf7f-1f085e3c8c76","tags":[{"name":"@regressivo","astNodeId":"9d6c09af-cdc0-4c3d-9ef6-ca124dc0c1b6"},{"name":"@updateProducts","astNodeId":"bfd1b72f-2f91-4281-ba74-8f547b3d8af2"}],"name":"Atulizar dados de Product","language":"pt","astNodeIds":["d770ed24-419f-4610-8037-7226229e592d"],"steps":[{"id":"270c1872-7012-48c2-8b9d-4ccf03656ce7","astNodeIds":["afa3e666-7288-4b05-b33e-97efbf4f3ce4"],"text":"realizar a requisição Patch ms-produtc"},{"id":"7896c1b9-6a1a-41a6-85f3-8a4605e49f20","astNodeIds":["316add04-2c3a-441e-b452-711673c90f16"],"text":"a API ira retornar o produto com os dados atualizados com status code 200"}]}},
+{"gherkinDocument":{"feature":{"location":{"line":3,"column":1},"language":"pt","keyword":"Funcionalidade","name":"/Units","children":[{"background":{"id":"41f7d4a7-9bc4-46ba-a660-7d1d43698e90","location":{"line":5,"column":1},"keyword":"Contexto","name":"Ter um seller cadastrado","steps":[{"location":{"line":6,"column":3},"keyword":"Dado ","text":"que tenho um seller cadastrado","id":"5867690b-c560-4075-b8f9-ef2859beefce"}]}},{"scenario":{"id":"d41ccc62-fb53-4e10-a7df-8e1bf9045250","location":{"line":8,"column":1},"keyword":"Cenario","name":"Criar unidade","steps":[{"location":{"line":9,"column":3},"keyword":"Quando ","text":"enviar a requisição post 'create_units'","id":"8cd29df6-30e7-4e6c-90ec-0efed7680538"},{"location":{"line":10,"column":3},"keyword":"Então ","text":"deve retornar o status 201","id":"e6c5fd24-6898-43c9-857b-dd3338a7df74"}]}},{"scenario":{"id":"90e8fc04-4423-49c0-8206-c69012ff3855","location":{"line":12,"column":1},"keyword":"Esquema do Cenario","name":"Valores invalidos","steps":[{"location":{"line":13,"column":3},"keyword":"Quando ","text":"enviar a requisição post \u003ccod_unit\u003e","id":"775e89e3-75ca-4c46-a589-5c29cc8191bb"},{"location":{"line":14,"column":3},"keyword":"Então ","text":"deve retornar o status \u003ccod_status\u003e","id":"bcb1451d-be49-46a0-8243-d481c5962cb8"},{"location":{"line":15,"column":3},"keyword":"E ","text":"a mensagem \u003cmessage\u003e","id":"ddd07b3e-8408-46c0-80e7-301183af3aee"}],"examples":[{"id":"44824c36-d35c-4f80-9e47-ac4b9b7f0651","location":{"line":17,"column":3},"keyword":"Exemplos","tableHeader":{"id":"ad00d6e1-2bf6-45ec-ab3e-9697c94b18f5","location":{"line":18,"column":5},"cells":[{"location":{"line":18,"column":7},"value":"cod_unit"},{"location":{"line":18,"column":26},"value":"cod_status"},{"location":{"line":18,"column":39},"value":"message"}]},"tableBody":[{"id":"b1597b38-1f7e-45f1-9cc7-fe23c616056c","location":{"line":19,"column":5},"cells":[{"location":{"line":19,"column":7},"value":"'invalid_phone'"},{"location":{"line":19,"column":26},"value":"400"},{"location":{"line":19,"column":39},"value":"'Telefone inválido'"}]},{"id":"d17af415-b475-46ca-b721-f242df3954e2","location":{"line":20,"column":5},"cells":[{"location":{"line":20,"column":7},"value":"'invalid_crm'"},{"location":{"line":20,"column":26},"value":"400"},{"location":{"line":20,"column":39},"value":"'CRM inválido'"}]},{"id":"02bd55bf-8eb7-4d82-83b9-dfd425560855","location":{"line":21,"column":5},"cells":[{"location":{"line":21,"column":7},"value":"'invalid_rating'"},{"location":{"line":21,"column":26},"value":"400"},{"location":{"line":21,"column":39},"value":"'rating must not be greater than 5'"}]},{"id":"88fbfd49-775c-4b62-851c-6a966d516dcf","location":{"line":22,"column":5},"cells":[{"location":{"line":22,"column":7},"value":"'invalid_email'"},{"location":{"line":22,"column":26},"value":"400"},{"location":{"line":22,"column":39},"value":"'contactEmail must be an email'"}]}]}]}},{"scenario":{"id":"8087ae6c-9de2-4599-b955-fea7e5d901ea","location":{"line":24,"column":1},"keyword":"Cenário","name":"Listar unidade","steps":[{"location":{"line":25,"column":3},"keyword":"Dado ","text":"que tenha uma unidade cadastrada","id":"0e7d2d67-1a58-4fb9-b455-4cfc0f8f9fd8"},{"location":{"line":26,"column":3},"keyword":"Quando ","text":"enviar a requisição GET","id":"80232104-ebbb-41be-82ae-8f3269633df6"},{"location":{"line":27,"column":3},"keyword":"Então ","text":"deve retornar o status 200","id":"d2432306-56aa-4a44-8112-45c0a480e079"},{"location":{"line":28,"column":3},"keyword":"E ","text":"o corpo da resposta da unidade deve conter todos os campos especificados","id":"3e710c72-348c-4469-80ca-3fd617a7c0b0"}]}}]},"uri":"features/specs/units.feature"}},
+{"pickle":{"uri":"features/specs/units.feature","id":"7c4a31c9-2b54-4302-9de6-dc5aebc5d1c6","name":"Criar unidade","language":"pt","astNodeIds":["d41ccc62-fb53-4e10-a7df-8e1bf9045250"],"steps":[{"id":"a100edf4-6b14-49a6-8a05-26553ae581db","astNodeIds":["5867690b-c560-4075-b8f9-ef2859beefce"],"text":"que tenho um seller cadastrado"},{"id":"8c97da00-0c92-4fb9-91f0-5847026771dc","astNodeIds":["8cd29df6-30e7-4e6c-90ec-0efed7680538"],"text":"enviar a requisição post 'create_units'"},{"id":"8c8a57f4-e4d2-458e-9b7e-dafaa5b43601","astNodeIds":["e6c5fd24-6898-43c9-857b-dd3338a7df74"],"text":"deve retornar o status 201"}]}},
+{"pickle":{"uri":"features/specs/units.feature","id":"c0792ebb-6c32-4964-a33a-0b07aa47feab","name":"Valores invalidos","language":"pt","steps":[{"id":"710dd69d-a34b-4965-b10f-3a16e3bf0792","astNodeIds":["5867690b-c560-4075-b8f9-ef2859beefce"],"text":"que tenho um seller cadastrado"},{"id":"990dc455-d43f-417b-87b9-af4294800947","astNodeIds":["775e89e3-75ca-4c46-a589-5c29cc8191bb","b1597b38-1f7e-45f1-9cc7-fe23c616056c"],"text":"enviar a requisição post 'invalid_phone'"},{"id":"797ee436-37e5-4d9d-b23e-012868ae50ca","astNodeIds":["bcb1451d-be49-46a0-8243-d481c5962cb8","b1597b38-1f7e-45f1-9cc7-fe23c616056c"],"text":"deve retornar o status 400"},{"id":"c0e5c496-f404-4311-b89f-75fc77233354","astNodeIds":["ddd07b3e-8408-46c0-80e7-301183af3aee","b1597b38-1f7e-45f1-9cc7-fe23c616056c"],"text":"a mensagem 'Telefone inválido'"}],"astNodeIds":["90e8fc04-4423-49c0-8206-c69012ff3855","b1597b38-1f7e-45f1-9cc7-fe23c616056c"]}},
+{"pickle":{"uri":"features/specs/units.feature","id":"79552102-64ba-4f9a-8f97-fa556d4b595e","name":"Valores invalidos","language":"pt","steps":[{"id":"a6299af2-a588-4079-a023-0b0846f25888","astNodeIds":["5867690b-c560-4075-b8f9-ef2859beefce"],"text":"que tenho um seller cadastrado"},{"id":"40f2863f-4471-4514-9f7d-0d0502ca678a","astNodeIds":["775e89e3-75ca-4c46-a589-5c29cc8191bb","d17af415-b475-46ca-b721-f242df3954e2"],"text":"enviar a requisição post 'invalid_crm'"},{"id":"b9cc4bd0-0df1-4d5c-8bbc-79ace3c97fbe","astNodeIds":["bcb1451d-be49-46a0-8243-d481c5962cb8","d17af415-b475-46ca-b721-f242df3954e2"],"text":"deve retornar o status 400"},{"id":"260f5103-5efc-46f2-9663-fca1c1b5e77e","astNodeIds":["ddd07b3e-8408-46c0-80e7-301183af3aee","d17af415-b475-46ca-b721-f242df3954e2"],"text":"a mensagem 'CRM inválido'"}],"astNodeIds":["90e8fc04-4423-49c0-8206-c69012ff3855","d17af415-b475-46ca-b721-f242df3954e2"]}},
+{"pickle":{"uri":"features/specs/units.feature","id":"16ce0f5d-37b8-40e7-b939-8ad892b1ca59","name":"Valores invalidos","language":"pt","steps":[{"id":"c7993fe8-4eeb-451f-ab3f-c81a0e6f4386","astNodeIds":["5867690b-c560-4075-b8f9-ef2859beefce"],"text":"que tenho um seller cadastrado"},{"id":"196db477-462d-457e-aa91-141d86b269d9","astNodeIds":["775e89e3-75ca-4c46-a589-5c29cc8191bb","02bd55bf-8eb7-4d82-83b9-dfd425560855"],"text":"enviar a requisição post 'invalid_rating'"},{"id":"2aa8da3d-a997-416f-b28b-5b8616fb0859","astNodeIds":["bcb1451d-be49-46a0-8243-d481c5962cb8","02bd55bf-8eb7-4d82-83b9-dfd425560855"],"text":"deve retornar o status 400"},{"id":"164eeac2-9170-44c5-9d37-3f056f8e4e2b","astNodeIds":["ddd07b3e-8408-46c0-80e7-301183af3aee","02bd55bf-8eb7-4d82-83b9-dfd425560855"],"text":"a mensagem 'rating must not be greater than 5'"}],"astNodeIds":["90e8fc04-4423-49c0-8206-c69012ff3855","02bd55bf-8eb7-4d82-83b9-dfd425560855"]}}

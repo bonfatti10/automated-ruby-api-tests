@@ -1,0 +1,13 @@
+default: -p html_report -p hmg -p json_report -p not_cucumber -p xml
+ci: -p html_report -p hmg -p json_report -p xml
+
+# Ambientes
+hmg: AMBIENTE=hmg
+dev: AMBIENTE=dev
+
+# Reports
+html_report: --format pretty -f html -o report/features_report.html
+json_report: --format pretty -f json -o report/features_report.json
+xml: --format pretty -f junit -o report/junit
+
+not_cucumber: --publish-quiet
